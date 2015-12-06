@@ -11,24 +11,41 @@
     <title>Search testers Page</title>
 
     <style>
-		html,
-		body {
-		  overflow-x: hidden; /* Prevent scroll on narrow devices */
-		}
-		body {
-		  padding-top: 70px;
-		}
-		footer {
-		  padding: 30px 0;
-		}		
-		@media screen and (max-width: 767px) {
-		  .row-offcanvas {
-		    position: relative;
-		    -webkit-transition: all .25s ease-out;
-		    -o-transition: all .25s ease-out;
-		    transition: all .25s ease-out;
-		  }		
-		  .row-offcanvas-right {
+        
+        html,
+				body {
+				  overflow-x: hidden; /* Prevent scroll on narrow devices */
+				}
+				body {
+				  padding-top: 70px;
+				}
+				footer {
+				  padding: 30px 0;
+				}
+				.rate-ex1-cnt{
+	width:225px; height: 40px;
+	margin:10px 0;
+}
+.rate-ex1-cnt .rate-btn,.rate-ex1-cnt .ratebtn{
+	width: 37px; height:40px;
+	float: left;
+	background: url(http://blackblues.org/img/rate-btn.png) no-repeat;
+	cursor: pointer;
+}
+.rate-ex1-cnt  .rate-btn-active{
+	background: url(http://blackblues.org/img/rate-btn-hover.png) no-repeat;
+}				
+				@media screen and (max-width: 767px) {
+				  .row-offcanvas {
+				    position: relative;
+				    -webkit-transition: all .25s ease-out;
+				         -o-transition: all .25s ease-out;
+				            transition: all .25s ease-out;
+				  }				
+				  .row-offcanvas-right {
+				    right: 0;
+                  }
+                    .row-offcanvas-right {
 		    right: 0;
 		  }		
 		  .row-offcanvas-left {
@@ -54,37 +71,19 @@
 		    width: 50%; /* 6 columns */
 		  }
 		}
-        .body123{
-        color:white;
-        }
-        .rate-ex1-cnt{
-	width:225px; height: 40px;
-	margin:10px 0;
-}
-.rate-ex1-cnt .rate-btn,.rate-ex1-cnt .ratebtn{
-	width: 37px; height:40px;
-	float: left;
-	background: url(http://blackblues.org/img/rate-btn.png) no-repeat;
-	cursor: pointer;
-}
-.rate-ex1-cnt  .rate-btn-active{
-	background: url(http://blackblues.org/img/rate-btn-hover.png) no-repeat;
-}				
-				@media screen and (max-width: 767px) {
-				  .row-offcanvas {
-				    position: relative;
-				    -webkit-transition: all .25s ease-out;
-				         -o-transition: all .25s ease-out;
-				            transition: all .25s ease-out;
-				  }
-
-		.logoutLblPos{		
+         .logoutLblPos{		
 		   position:fixed;
 		   right:10px;
 		   top:5px;
-		}
-
-	</style>
+         }
+		
+             .body123{
+        color:white;
+             }
+        
+        
+        
+    </style>
 
   </head>
 	<body>
@@ -108,9 +107,8 @@
 	            <li class="active"><a href="#" ng-click="testerdashboard()">Dashboard</a></li>
 	            <li><a href="#" ng-click="testerdefects()">Defects</a></li>
 	          </ul>
-	          <div class = "body123">
-          
-        
+                
+	         <div class = "body123">              
 	          <label class="logoutLblPos"><h6><span id="time"></span>
 	          <a type="submit" align="right" class="btn btn-success" ng-click="logoutsession()" role="button" >Logout</a>
 	          </label> </h6></div>
@@ -159,22 +157,21 @@
 		                                    </tr>
 		                                    </tbody>
 		                                </table>
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-        <div class="panel-body">
-              <div class="dataTable_wrapper">
-                                    <h2><font color = "blue">Tester </font></h2>
-                                    <input type="text" name="tname" ng-model="tname" hidden> 
-                                                    <div class="rate-ex1-cnt">
             
-        </div>
+        
                                  
                               </div>                      
                     </div>
+                                        <div class="panel-body">
+                              <div class="dataTable_wrapper">
+                                    <h2><font color = "blue"> Tester rated</font></h2>
+                                    <input type="text" name="tname" ng-model="tname" hidden> 
+                                                    <div class="rate-ex1-cnt">
+            <div id="1" class="rate-btn-1 rate-btn"></div>
+            <div id="2" class="rate-btn-2 rate-btn"></div>
+            <div id="3" class="rate-btn-3 rate-btn"></div>
+            <div id="4" class="rate-btn-4 rate-btn"></div>
+            <div id="5" class="rate-btn-5 rate-btn"></div>
 	    		
     
   
@@ -210,7 +207,7 @@
 	   		           		//alert(JSON.stringify(response));
 	   		           		$scope.defectscount= JSON.parse(response.result);
 	   		        }).error(function(error){
-	   		            alert("ERROR VIEWING PENDING CUSTOMER REQUEST");
+	   		           // alert("ERROR VIEWING PENDING CUSTOMER REQUEST");
 	   		        });
 	   		    }; 
 	   		 $scope.countdefectsprofile();
@@ -223,7 +220,7 @@
 	   		           		//alert(JSON.stringify(response));
 	   		           		$scope.projectscount= JSON.parse(response.result);
 	   		        }).error(function(error){
-	   		            alert("ERROR VIEWING PENDING CUSTOMER REQUEST");
+	   		          //  alert("ERROR VIEWING PENDING CUSTOMER REQUEST");
 	   		        });
 	   		    }; 
 	   		 $scope.countprojectsprofile();
@@ -236,7 +233,7 @@
 	   		           		//alert(JSON.stringify(response));
 	   		           		$scope.projectsdata= JSON.parse(response.result);
 	   		        }).error(function(error){
-	   		            alert("ERROR VIEWING tester project details");
+	   		          //  alert("ERROR VIEWING tester project details");
 	   		        });
 	   		    }; 
 	   		 $scope.projectdata();
@@ -247,7 +244,7 @@
 			      	  
 			        }).
 			          then(function(response) {
-			         alert("in");
+			        // alert("in");
 			         $scope.testerrated = angular.fromJson(response.data.result);
 						//alert($scope.testerrated);
 			          }); 
@@ -301,7 +298,7 @@
     </script>
     <script>
 $(document).ready(function(e){
-var count=$('td.sayori').text();
+var count=$('t.sayori').text();
 var i=0;
 $('.rate-ex1-cnt div').each(function(e){
 if(i<5){
@@ -311,8 +308,7 @@ i++;
 });
 });
 </script>
-		
-           <script>
+                                            <script>
                 var today = new Date();
                 document.getElementById('time').innerHTML=today;
             </script>
