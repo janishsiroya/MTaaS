@@ -3,10 +3,10 @@ var mysql = require('mysql');
 
 function getConnection(){
 	var connection = mysql.createConnection({
-	    host     : 'myapp.cqrgl2fq2ihw.us-west-2.rds.amazonaws.com',
-	    user     : 'myapp',
+	    host     : 'startech.cin342eyk0gb.us-west-2.rds.amazonaws.com',
+	    user     : 'startech',
 	    password : 'password',
-	    database : 'test',
+	    database : 'application',
 	    port	 : 3306
 	});
 	return connection;
